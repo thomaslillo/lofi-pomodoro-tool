@@ -20,7 +20,8 @@ const PomodoroTimer = () => {
 
   const toggleTimer = () => {
     setIsRunning(!isRunning);
-    if (!isRunning) {
+    if (isRunning) {
+      console.log(isRunning);
       const intervalId = setInterval(() => {
         setTimeLeft((prevTime) => {
           // once the counter hits 0
@@ -39,6 +40,7 @@ const PomodoroTimer = () => {
     }
   };
 
+  // format for display
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60;
 
