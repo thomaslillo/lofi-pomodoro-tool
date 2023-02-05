@@ -60,7 +60,7 @@ const PomodoroTimer = () => {
           onChange={handleBreakTimeChange}
         />
       </div>
-      <div>
+      <div>        
         <h3>{isBreak ? 'Break' : 'Study'} Time</h3>
         <p>
           {minutes}:{seconds.toString().padStart(2, '0')}
