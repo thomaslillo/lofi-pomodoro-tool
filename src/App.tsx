@@ -16,8 +16,16 @@ function App() {
         </p>
       </div>
 
-      <div>
-        <PomodoroTimer />
+      <div className="lofivideo">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/jfKfPfyJRdk"
+          title="lofi video player"
+          frameborder="1"
+          allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
       </div>
 
       <div>
@@ -25,6 +33,10 @@ function App() {
           Use the time below to set a countdown for each session, and you can
           play some cool lofi beats with the embedded radio.
         </p>
+      </div>
+
+      <div className="timer">
+        <PomodoroTimer />
       </div>
     </div>
   );

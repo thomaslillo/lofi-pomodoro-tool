@@ -45,14 +45,16 @@ const PomodoroTimer = () => {
   return (
     <div>
       <div>
-        <label htmlFor="study-time">Study Time:</label>
+        <label htmlFor="study-time">Study Time: </label>
         <input
           type="number"
           id="study-time"
           value={studyTime}
           onChange={handleStudyTimeChange}
         />
-        <label htmlFor="break-time">Break Time:</label>
+      </div>
+      <div>
+        <label htmlFor="break-time">Break Time: </label>
         <input
           type="number"
           id="break-time"
@@ -60,8 +62,8 @@ const PomodoroTimer = () => {
           onChange={handleBreakTimeChange}
         />
       </div>
-      <div>        
-        <h3>{isBreak ? 'Break' : 'Study'} Time</h3>
+      <div>
+        <h3>It's {isBreak ? 'Break' : 'Study'} Time</h3>
         <p>
           {minutes}:{seconds.toString().padStart(2, '0')}
         </p>
