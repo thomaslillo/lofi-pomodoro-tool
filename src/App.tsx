@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
+import PomodoroTimer from './components/PomodoroTimer.jsx';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,7 +16,9 @@ function App() {
         </p>
       </div>
 
-      <div></div>
+      <div>
+        <PomodoroTimer />
+      </div>
 
       <div>
         <p>
