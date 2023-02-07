@@ -20,7 +20,8 @@ const PomodoroTimer = () => {
 
   const toggleTimer = () => {
     setIsRunning(!isRunning);
-    if (isRunning) {
+    console.log(isRunning);
+    if (isRunning == true) {
       console.log(isRunning);
       const intervalId = setInterval(() => {
         setTimeLeft((prevTime) => {

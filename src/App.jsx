@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import PomodoroTimer from './components/PomodoroTimer.jsx';
+import PomodoroTimer from './components/PomodoroTimer';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,9 +21,8 @@ function App() {
           height="315"
           src="https://www.youtube.com/embed/jfKfPfyJRdk"
           title="lofi video player"
-          frameborder="1"
+          frameBorder="1"
           allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
         ></iframe>
       </div>
 
