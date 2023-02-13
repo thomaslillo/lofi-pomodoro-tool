@@ -1,41 +1,33 @@
 import { useState } from 'react';
-import './App.css';
 import PomodoroTimer from './components/PomodoroTimer';
+import Footer from './components/Footer';
+import Player from './components/Player';
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
-      <div>
-        <h1>Lofi Pomodoro</h1>
-        <p>
-          Super minimal so no distractions, always free, always ready for
-          learning.
-        </p>
-      </div>
+      <div className='bg-sky-300 h-full flex flex-col justify-center items-center text-center'>
 
-      <div className="lofivideo">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/jfKfPfyJRdk"
-          title="lofi video player"
-          frameBorder="1"
-          allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        ></iframe>
-      </div>
+        <div className=''>
+          <h1>Lofi Pomodoro</h1>
+          <p>
+            Super minimal so no distractions, always free, always ready for
+            learning.
+          </p>
+        </div>
 
-      <div>
-        <p>
-          Use the time below to set a countdown for each session, and you can
-          play some cool lofi beats with the embedded radio.
-        </p>
-      </div>
+        <Player />
 
-      <div className="timer">
+        <div className=''>
+          <p>
+            Use the time below to set a countdown for each session, and you can
+            play some cool lofi beats with the embedded radio.
+          </p>
+        </div>
+
         <PomodoroTimer />
-      </div>
+
+        <Footer />
     </div>
   );
 }
