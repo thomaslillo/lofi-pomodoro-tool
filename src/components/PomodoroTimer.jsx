@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 
 const PomodoroTimer = () => {
-  // the times
+// the times
   const [studyTime, setStudyTime] = useState(25);
   const [breakTime, setBreakTime] = useState(5);
   // for app behaviour
   const [timeLeft, setTimeLeft] = useState(studyTime * 60);
   const [isBreak, setIsBreak] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
+  const intervalId = useRef(null);
 
   const handleStudyTimeChange = (e) => {
     setStudyTime(e.target.value);
@@ -19,26 +20,25 @@ const PomodoroTimer = () => {
   };
 
   const toggleTimer = () => {
-    setIsRunning(!isRunning);
-    console.log(isRunning);
-    if (isRunning == true) {
-      console.log(isRunning);
-      const intervalId = setInterval(() => {
-        setTimeLeft((prevTime) => {
-          // once the counter hits 0
-          if (prevTime === 0) {
-            clearInterval(intervalId);
-            setIsBreak(!isBreak);
-            setTimeLeft(isBreak ? breakTime * 60 : studyTime * 60);
-            // sound the alarm (to come)
-            //const alarm = new Audio('alarm.mp3');
-            //alarm.play();
-            return prevTime;
-          }
-          return prevTime - 1;
-        });
-      }, 1000);
-    }
+    setIsRunning((prevIsRunning) => {
+      if (prevIsRunning) {
+        clearInterval(intervalId.current);
+        return false;
+      } else {
+        intervalId.current = setInterval(() => {
+          setTimeLeft((prevTime) => {
+            if (prevTime === 0) {
+              clearInterval(intervalId.current);
+              setIsBreak(!isBreak);
+              setTimeLeft(isBreak ? breakTime * 60 : studyTime * 60);
+              return prevTime;
+            }
+            return prevTime - 1;
+          });
+        }, 1000);
+        return true;
+      }
+    });
   };
 
   // format for display
